@@ -1,0 +1,48 @@
+{
+  "name": "clean-architecture-api",
+  "version": "1.0.0",
+  "description": "Clean Architecture Node.js API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node src/server.js",
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "NODE_ENV=test DOTENV_CONFIG_PATH=.env.test jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration"
+  },
+  "dependencies": {
+    "awilix": "^8.0.0",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.0.0",
+    "helmet": "^5.0.0",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.0.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "jest": "^27.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.0",
+    "supertest": "^6.1.6",
+    "mongodb-memory-server": "^8.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFiles": ["dotenv/config"],
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/server.js"
+    ]
+  }
+}
